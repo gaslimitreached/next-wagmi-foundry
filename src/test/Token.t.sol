@@ -17,9 +17,9 @@ contract TokenTest is Hevm, DSTest {
         assertEq(token.totalSupply(), 20 ether);
     }
 
-    function testFail_mint_not_owner() public {
+    function test_mintNotOwner() public {
         hevm.prank(address(1));
+        hevm.expectRevert('Ownable: caller is not the owner');
         token.mint(address(1), 20 ether);
-        assertEq(token.totalSupply(), 0);
     }
 }
