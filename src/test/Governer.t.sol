@@ -8,7 +8,7 @@ import "../Token.sol";
 contract TokenTest is Hevm, DSTest {
     GovToken internal token;
 
-    function setUp() {
+    function setUp() public {
         token = new GovToken("token", "token");
     }
 }
