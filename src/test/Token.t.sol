@@ -12,12 +12,12 @@ contract TokenTest is Hevm, DSTest {
         token = new GovToken("test", "test");
     }
 
-    function test_mint() public {
+    function testMint() public {
         token.mint(address(1), 20 ether);
         assertEq(token.totalSupply(), 20 ether);
     }
 
-    function test_mintNotOwner() public {
+    function testMintNotOwner() public {
         hevm.prank(address(1));
         hevm.expectRevert('Ownable: caller is not the owner');
         token.mint(address(1), 20 ether);
