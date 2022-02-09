@@ -4,9 +4,9 @@ pragma solidity ^0.8.2;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol";
-import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20VotesComp.sol";
 
-contract GovToken is ERC20, ERC20Permit, ERC20Votes, Ownable {
+contract GovToken is ERC20, ERC20Permit, ERC20VotesComp, Ownable {
     constructor(string memory name_, string memory symbol_) ERC20(name_, symbol_) ERC20Permit(name_) {}
 
     function mint(address to, uint256 amount) public onlyOwner {
